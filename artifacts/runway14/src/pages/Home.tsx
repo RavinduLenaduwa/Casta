@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion, useScroll } from "framer-motion";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
@@ -28,6 +29,20 @@ export default function Home() {
     path: "",
   });
   const { scrollYProgress } = useScroll();
+
+  // Arriving at /#services from another page, or from a shared link, lands on a
+  // document the browser has already given up scrolling: the section doesn't
+  // exist until React renders it, so the native hash jump has silently failed by
+  // the time we get here. Redo it once the sections are actually in the DOM.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (!id) return;
+
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "auto" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black overflow-hidden font-sans">

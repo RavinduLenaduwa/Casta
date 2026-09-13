@@ -100,12 +100,16 @@ export default function Home() {
             <motion.div variants={fadeUp} className={`${caption} mb-8`}>
               Web Apps · Websites · SEO · AI Automation
             </motion.div>
-            <motion.h1 variants={fadeUp} className={`${heading.hero} font-bold tracking-tighter leading-none mb-8`}>
-              WE BUILD<br />
-              THINGS THAT WORK.
+            {/* Steps down from heading.hero: this headline is twice the length of
+                the one it replaced and overflows the column at that scale. */}
+            <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none mb-8">
+              {/* Forced break balances the two lines from md up. On narrow screens
+                  it strands "BE" alone, so let the text wrap on its own there. */}
+              SOFTWARE YOU WON'T BE<br className="hidden md:inline" />
+              {" "}REBUILDING NEXT YEAR.
             </motion.h1>
             <motion.p variants={fadeUp} className={`text-lg md:text-xl ${ink.supporting} max-w-2xl font-light mb-12`}>
-              Web apps, websites, SEO, and AI automation for businesses that need software to actually work, not just launch.
+              Web apps, websites, SEO, and AI automation for teams who have to live with what gets shipped.
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 items-start">
               <Link href="/work-with-us" className="group relative inline-flex items-center justify-center px-8 py-4 font-medium text-sm bg-white text-black overflow-hidden">
@@ -146,8 +150,8 @@ export default function Home() {
             >
               <div className={`${caption} mb-4`}>Studio</div>
               <h2 className={`${heading.section} font-light leading-tight`}>
-                Code that<br />
-                <span className="font-bold">actually ships.</span>
+                We don't<br />
+                <span className="font-bold">disappear at launch.</span>
               </h2>
             </motion.div>
             <motion.div

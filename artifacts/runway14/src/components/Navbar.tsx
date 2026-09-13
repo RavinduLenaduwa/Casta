@@ -3,11 +3,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "wouter";
 import { Menu, X } from "lucide-react";
 
+// Must carry the deploy base path. A bare "/#about" is an absolute URL, so on
+// GitHub Pages it resolves to the domain root and leaves the site entirely.
 const mobileLinks = [
-  { href: "/#about", label: "About" },
-  { href: "/#services", label: "Services" },
-  { href: "/#process", label: "Process" },
-  { href: "/#faq", label: "FAQ" },
+  { href: `${import.meta.env.BASE_URL}#about`, label: "About" },
+  { href: `${import.meta.env.BASE_URL}#services`, label: "Services" },
+  { href: `${import.meta.env.BASE_URL}#process`, label: "Process" },
+  { href: `${import.meta.env.BASE_URL}#faq`, label: "FAQ" },
 ];
 
 export function Navbar() {

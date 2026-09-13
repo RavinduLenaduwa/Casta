@@ -97,7 +97,7 @@ export default function Home() {
                 <span className="relative z-10 group-hover:text-white transition-colors duration-500">Start Building</span>
                 <div className="absolute inset-0 bg-black translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
               </Link>
-              <a href="/#services" className="inline-flex items-center justify-center px-8 py-4 font-medium text-sm border border-white/20 text-white/70 hover:text-white hover:border-white transition-colors duration-300">
+              <a href={`${import.meta.env.BASE_URL}#services`} className="inline-flex items-center justify-center px-8 py-4 font-medium text-sm border border-white/20 text-white/70 hover:text-white hover:border-white transition-colors duration-300">
                 See What We Do
               </a>
             </motion.div>
@@ -140,13 +140,19 @@ export default function Home() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={fadeUp}
-              className={`text-lg md:text-xl ${ink.supporting} space-y-8 font-light`}
+              className={`text-lg md:text-xl ${ink.supporting} space-y-8 font-light max-w-2xl`}
             >
               <p>
-                Runway 14 is a software development startup that turns complex problems into clean, production-ready web applications, built with modern stacks and shipped without the bloat.
+                Runway 14 is a software development studio. We build web apps, websites, SEO foundations, and AI automations for businesses that need working software, not a prototype that stalls somewhere short of launch.
               </p>
               <p>
-                We work closely with founders, product teams, and growing businesses to deliver custom software that performs from day one and evolves with your needs.
+                We work with founders putting out a first version, and with teams who already have a product and need more hands on it. The work looks different in each case. The standard doesn't.
+              </p>
+              <p>
+                Most software problems aren't hard to code. They're hard to pin down. So we spend real time on scope before anything gets built: what it has to do, what it has to work with, and the edge cases that usually surface three weeks in. That start is slower. Everything after it is faster.
+              </p>
+              <p>
+                In practice that means a clear quote and a realistic timeline before any work begins, progress you can see every week instead of a reveal at the end, and someone still picking up the phone after launch. Shipping isn't the finish line.
               </p>
             </motion.div>
           </div>
